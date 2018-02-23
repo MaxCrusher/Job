@@ -20,14 +20,29 @@ class App extends Component {
       let elem = [];
 
       while(i!=0){
-        elem.push(<Imag id = {i} text = {Math.round(Math.random()*Math.pow(id,2))}/>)
+        
+        let random = Math.round(Math.random()*Math.pow(id,2))
+        elem.push(<Imag id = {i} text = {random}/>)
         i= i-1;
       }
       this.setState({
         mas: elem.reverse()
       })
-
     }
+    Changecolor(e, id, text){
+      var targ;
+      if (!e) {
+        var e = window.event;
+      }
+      if (e.target) {
+        targ=e.target;
+      } else if (e.srcElement) {
+        targ=e.srcElement;
+      }
+      var tname;
+      tname = targ.tagName;
+      alert("You clicked on a " + tname + " element.");
+  }
   render() {
     console.log(this.state.size);
     let mat = this.state.size;
@@ -47,7 +62,7 @@ class App extends Component {
         <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,3)}/><label>3</label></p>
         <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,4)}/><label>4</label></p>
 
-      <div className = {style}>
+      <div className = {style} onmousedown = {this.Changecolor.bind(event, this.props.id, this.props.text)} >
           {this.state.mas.map(function(el, i){
             console.log(mat);
 
