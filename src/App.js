@@ -29,10 +29,11 @@ class App extends Component {
         mas: elem.reverse()
       })
     }
-    Changecolor(e, id, text){
+    Changecolor(e){
       var targ;
       if (!e) {
         var e = window.event;
+        console.log("+");
       }
       if (e.target) {
         targ=e.target;
@@ -45,7 +46,7 @@ class App extends Component {
   }
   render() {
     console.log(this.state.size);
-    let mat = this.state.size;
+    let mat = this.state.size;//onClick = {this.Changecolor.bind(event, this.props.id, this.props.text)}
     let style = '';
     if(mat==2){
       style = 'block2';
@@ -57,12 +58,12 @@ class App extends Component {
       style = 'block4';
     }
     return (
-      <div>
+      <div >
         <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,2)}/><label>2</label></p>
         <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,3)}/><label>3</label></p>
         <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,4)}/><label>4</label></p>
 
-      <div className = {style} onmousedown = {this.Changecolor.bind(event, this.props.id, this.props.text)} >
+      <div className = {style}  onClick = {this.Changecolor(event)}>
           {this.state.mas.map(function(el, i){
             console.log(mat);
 
