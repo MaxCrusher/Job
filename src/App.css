@@ -1,0 +1,29 @@
+
+.elem{
+  background-color: blue;
+}
+.block2{
+
+  margin-left: 20%;
+  border: 5px red solid;
+  width: 320px;
+
+}
+
+.block3{
+  margin-left: 20%;
+  border: 5px red solid;
+  width: 475px;
+}
+
+.block4{
+  margin-left: 20%;
+  border: 5px red solid;
+  width: 630px;
+
+}
+.row{
+  height: 150px;
+  border: 5px blue solid; 
+}
+
