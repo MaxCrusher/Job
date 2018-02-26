@@ -20,12 +20,12 @@ class Imag extends Component{
         //onmousedown = {this.Changecolor.bind(this ,event, this.props.id, this.props.text)} >
         this.setState({index: index+1})
         console.log(id+" "+text+ " "+ this.state.index);
-
     }
+
     render(){
         return(
-            <div className = "box" onClick = {this.Changecolor.bind(this,event ,this.props.id, this.props.text, this.state.index) }>
-                {this.props.text}
+            <div className = 'box'  onClick = {()=>this.props.update(this.props.id)}>
+            {this.props.id+1}
             </div>
         );
     }

@@ -7,20 +7,21 @@
   margin-left: 20%;
   border: 5px red solid;
   width: 320px;
-
+  height: 315px;
 }
 
 .block3{
   margin-left: 20%;
   border: 5px red solid;
   width: 475px;
+  height: 470px;
 }
 
 .block4{
   margin-left: 20%;
   border: 5px red solid;
   width: 630px;
-
+  height: 625px;
 }
 .row{
   height: 150px;

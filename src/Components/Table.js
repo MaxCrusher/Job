@@ -36,3 +36,16 @@ class Table extends Component{
     }
 }
 export default Table;
+      /*var targ;
+      if (!e) {
+        var e = window.event;
+        console.log("+");
+      }
+      if (e.target) {
+        targ=e.target;
+      } else if (e.srcElement) {
+        targ=e.srcElement;
+      }
+      var tname;
+      tname = targ.tagName;
+      alert("You clicked on a " + tname + " element.");*/
