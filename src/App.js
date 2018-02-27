@@ -6,6 +6,7 @@ import Table from './Components/Table';
 let index=0;
 let click1 = 0;
 let click2 =0;
+let resault=0;
 let mas = {
     elem:[]
   }
@@ -23,6 +24,7 @@ class App extends Component {
     }
     updateState(id) {
         index= index+1;
+        resault=0;
         if(index%2==0&&index!=0)
         {
             mas.elem.map(function(el,i){
@@ -41,6 +43,16 @@ class App extends Component {
                     elem:mas.elem
                 }
             })
+            setTimeout(()=> mas.elem.map(function(el,i){
+
+                    if(i==el.props.id){
+                    resault=resault+1;
+                    if(resault==mas.elem.length){
+                        console.log("+")
+                        alert("юхууууууууууууууууууу");
+                    }}
+            }),300);
+            
         }
         else{   
             mas.elem.map(function(el,i){
