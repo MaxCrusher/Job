@@ -49,7 +49,7 @@ class App extends Component {
                     resault=resault+1;
                     if(resault==mas.elem.length){
                         console.log("+")
-                        alert("юхууууууууууууууууууу");
+                        alert("Молодец, а теперь займись нормальным делом!!");
                     }}
             }),300);
             
