@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DropTarget } from 'react-dnd';
 import './App.css';
 import './Css/Imag.css';
 import Imag from './Components/imag';
-import Table from './Components/Table';
 let index=0;
 let click1 = 0;
 let click2 =0;
@@ -25,7 +27,7 @@ class App extends Component {
     updateState(id) {
         index= index+1;
         resault=0;
-        if(index%2==0&&index!=0)
+        if(index%2===0&&index!==0)
         {
             mas.elem.map(function(el,i){
                 if(el.props.id===id)
@@ -45,14 +47,13 @@ class App extends Component {
             })
             setTimeout(()=> mas.elem.map(function(el,i){
 
-                    if(i==el.props.id){
+                    if(i===el.props.id){
                     resault=resault+1;
-                    if(resault==mas.elem.length){
+                    if(resault===mas.elem.length){
                         console.log("+")
                         alert("Молодец, а теперь займись нормальным делом!!");
                     }}
-            }),300);
-            
+            }),300);          
         }
         else{   
             mas.elem.map(function(el,i){
@@ -101,19 +102,20 @@ class App extends Component {
           style = 'block4';
         }
         return (
+          <DragDropContext>
           <div >
-            <div>{this.state.data}</div>
             <div>
             <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,2)}/><label>2</label></p>
             <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,3)}/><label>3</label></p>
             <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,4)}/><label>4</label></p>
             </div>
-          <div className = {style}>
+            <div className = {style}>
               {this.state.mas.elem.map(function(el, i){
                 return <div key = {i}>{el}</div>;
               })}
+            </div>
           </div>
-          </div>
+          </DragDropContext>
         );
       }
 }
