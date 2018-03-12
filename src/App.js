@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
-import { DropTarget } from 'react-dnd';
 import './App.css';
 import './Css/Imag.css';
 import Imag from './Components/imag';
@@ -102,7 +99,6 @@ class App extends Component {
           style = 'block4';
         }
         return (
-          <DragDropContext>
           <div >
             <div>
             <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,2)}/><label>2</label></p>
@@ -115,7 +111,6 @@ class App extends Component {
               })}
             </div>
           </div>
-          </DragDropContext>
         );
       }
 }

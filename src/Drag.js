@@ -1,59 +1,27 @@
 import React, { Component } from 'react';
 import { SortableContainer, SortableHandle, SortableElement, arrayMove } from 'react-sortable-hoc';
+import SortableList from './Components/SortableList';
 import './App.css';
 import './Css/Imag.css';
 import Imag from './Components/imag';
 let mass = [];
-let Size= 0;
 let id = 0;
-const SortableItem = SortableElement(({value}) =>
-  <div className = 'box'>{value+1}</div>
-);
-
-const SortableList = SortableContainer(({mas}) => {
-  let style = '';
-  if(Size==2){
-    style = 'block2';
-  }
-  if(Size==3){
-    style = 'block3'
-  }
-  if(Size==4){
-    style = 'block4';
-  }
-  function Cool(value, index){
-    if(value===index){
-      id++;
-      if(id===Math.pow(Size,2))
-      {
-        setTimeout(()=>{id=0;alert("Дааааааааааааа!!!!!")},400);
-      }
-    }
-    else id=0;
-    console.log(id);
-  }
-  id = 0;
-  return (
-    <div className = {style}>
-      {mas.map((value, index) => (
-        Cool(value, index),
-        <SortableItem key={index} index={index} value={value} />
-      ))}
-    </div>
-  );
-});
-
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mas:[]
+      mas:[],
+      id:0
     }
     this.onSortEnd = this.onSortEnd.bind(this);
   }
-  Change(id)
+  Change()
   {
-    Size =id;
+    id = document.getElementById('inputtext').value;
+    console.log(+document.getElementById('inputtext').value);
+    this.setState({
+      id:id
+    })
     mass=[];
     var i = 0;
     while(i<Math.pow(id,2)){//заполнение массива компонентами
@@ -73,18 +41,23 @@ class App extends Component {
     mas: arrayMove(this.state.mas, oldIndex, newIndex),
   });
   }
-
+//<button onClick ={this.Change.bind(this,)}>OK</button>
+/**          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,2)}/><label>2</label></p>
+          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,3)}/><label>3</label></p>
+          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,4)}/><label>4</label></p> */
   render() {
       return (
         <div>
           <div>
-          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,2)}/><label>2</label></p>
-          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,3)}/><label>3</label></p>
-          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,4)}/><label>4</label></p>
+          <p>
+            <input type = "text" name = "text" id='inputtext'/>
+            <input type = "button" name = "but" onClick={this.Change.bind(this)}/>
+          </p>
           </div>
           <SortableList mas={this.state.mas}
                         onSortEnd={this.onSortEnd.bind(this)}
-                        axis='xy' />
+                        axis='xy'
+                        size = {this.state.id} />
         </div>
       );
     }
