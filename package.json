@@ -3,22 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "material-ui": "^0.20.0",
     "react": "^16.2.0",
-    "react-beautiful-dnd": "^5.0.0",
-    "react-dnd": "^2.5.4",
-    "react-dnd-html5-backend": "^2.5.4",
     "react-dom": "^16.2.0",
     "react-infinite": "^0.12.1",
     "react-scripts": "0.9.5",
     "react-sortable-hoc": "^0.6.8",
     "react-virtualized": "^9.18.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-jest": "^22.4.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.4.2",
+    "jest-cli": "^22.4.2",
+    "jest-enzyme": "^5.0.3",
+    "react-test-renderer": "^16.2.0",
+    "regenerator-runtime": "^0.11.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   }
 }

@@ -15,9 +15,11 @@ class App extends Component {
     }
     this.onSortEnd = this.onSortEnd.bind(this);
   }
+
   Change()
   {
     id = document.getElementById('inputtext').value;
+    console.log(document.cookie);
     console.log(+document.getElementById('inputtext').value);
     this.setState({
       id:id
@@ -36,23 +38,21 @@ class App extends Component {
       mas:mass
     })
   }
+  
   onSortEnd = ({oldIndex, newIndex}) => {
   this.setState({
     mas: arrayMove(this.state.mas, oldIndex, newIndex),
   });
   }
-//<button onClick ={this.Change.bind(this,)}>OK</button>
-/**          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,2)}/><label>2</label></p>
-          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,3)}/><label>3</label></p>
-          <p><input type = "radio" name = "rad" onClick ={this.Change.bind(this,4)}/><label>4</label></p> */
+  
   render() {
       return (
         <div>
           <div>
-          <p>
-            <input type = "text" name = "text" id='inputtext'/>
-            <input type = "button" name = "but" onClick={this.Change.bind(this)}/>
-          </p>
+            <p>
+              <input type = "text" name = "text" id='inputtext'/>
+              <input type = "button" name = "but" onClick={this.Change.bind(this)}/>
+            </p>
           </div>
           <SortableList mas={this.state.mas}
                         onSortEnd={this.onSortEnd.bind(this)}

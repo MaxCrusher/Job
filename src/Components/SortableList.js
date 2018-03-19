@@ -13,7 +13,7 @@ const SortableList = SortableContainer(({mas, size}) => {
         }
         else id=0;
         if(id ===Math.pow(size,2)){
-          alert("дааааааааааааааааааа")
+          setTimeout(()=>{alert("дааааааааааааааааааа")},300)
         }
       })
     }
